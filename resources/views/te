@@ -1,0 +1,68 @@
+{{-- <?php
+// session_start();
+// if (isset($_SESSION['username'])) {
+//     echo "<h1>مرحبًا بك " . $_SESSION['username'] . "</h1>";
+// } else {
+//     // header("Location: test.php");
+//     exit();
+// }
+
+// تعريف معلومات الاتصال بقاعدة البيانات
+// $servername = "localhost";
+// $username = "admin";
+// $password = "admin";
+// $dbname = "accounts";
+
+// // إنشاء الاتصال بقاعدة البيانات
+// $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
+// // تعريف استعلام SQL لاسترجاع البيانات من جدول محدد
+// // $sql = "SELECT * FROM table_name";
+// $sql = 'SELECT * FROM users';
+// // تنفيذ الاستعلام وجلب البيانات
+// $result = $conn->query($sql);
+// echo ("<p>Database Name :".$sql."</p>" );
+// // عرض البيانات على الصفحة
+// if ($result->rowCount() > 0) {
+//     // بدء جدول HTML
+//     echo "<table>";
+//     echo "<tr><th>العنوان</th><th>المحتوى</th></tr>";
+
+//     // عرض البيانات في صفوف الجدول
+//     while($row = $result->fetch()) {
+//         echo "<tr><td>" . $row["username"]. "</td><td>" . $row["password"]. "</td></tr>";
+//     }
+
+//     // إنهاء جدول HTML
+//     echo "</table>";
+// } else {
+//     echo "0 results";
+// }
+
+// // إغلاق الاتصال بقاعدة البيانات
+// $conn = null;
+?> --}}
+
+
+
+# ***************
+
+<!-- ... جزء من الكود السابق ... -->
+<tbody>
+    <?php foreach ($data as $row) { ?>
+    <tr class="odd gradeX">
+        <td><?php echo $row['id']; ?></td>
+        <td><?php echo $row['CustumerName']; ?></td>
+        <td><?php echo $row['numberId']; ?></td>
+        <td><?php echo $row['exportDate']; ?></td>
+        <td><?php echo $row['mobileNumber']; ?></td>
+        <td>
+            <!-- إضافة أزرار التعديل والعرض والحذف مع ربطها بالمسارات -->
+            <a href="<?php echo route('stocks.edit'); ?>" class="btn btn-primary btn-sm">Edit</a>
+            <a href="<?php echo route('stocks.layout'); ?>" class="btn btn-success btn-sm">View</a>
+            <a href="<?php echo route('stocks.destroy'); ?>" class="btn btn-danger btn-sm">Delete</a>
+        </td>
+    </tr>
+    <?php } ?>
+</tbody>
+<!-- ... باقي الكود ... -->
